@@ -10,4 +10,4 @@ WORKDIR /usr/src/cpp_test
 
 RUN c++ -o Test main.cpp -std=c++98 -Wall -Wextra -Werror
 
-CMD [" ./Test" ]
+CMD [ " ./Test " ]
