@@ -6,18 +6,18 @@
 #    By: jwillert@student.42heilbronn.de            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/10 18:42:55 by jwillert          #+#    #+#              #
-#    Updated: 2023/07/10 18:49:20 by jwillert         ###   ########           #
+#    Updated: 2023/07/10 18:52:58 by jwillert         ###   ########           #
 #                                                                              #
 # **************************************************************************** #
 
-.PHONY: all stop rm build
+.PHONY: all stop rm build run
 
-all: stop rm build run
+all: stop rm build
 stop:
-	docker stop $(docker ps -a -q)
+	docker stop $(shell docker ps -a -q)
 rm:
-	docker rm $(docker ps -a -q)
-	docker image rm $(docker images -a -q)
+	docker rm $(shell docker ps -a -q)
+	docker image rm $(shell docker images -a -q)
 build:
 	docker build . -t cpp
 run:
