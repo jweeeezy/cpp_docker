@@ -18,7 +18,7 @@ RUN apt-get install clang -y
 
 # Set working directory and git clone current repo
 WORKDIR /usr/src/
-RUN git clone https://github.com/jweeeezy/cpp.git
+COPY cpp/ /usr/src/cpp/
 RUN cd /usr/src/cpp
 
 #RUN clang++ -o Test main.cpp -std=c++98 -Wall -Wextra -Werror
