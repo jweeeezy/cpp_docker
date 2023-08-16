@@ -6,10 +6,9 @@
 #    By: jwillert <jwillert@student.42heilbronn.de> +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/10 18:42:55 by jwillert          #+#    #+#              #
-#    Updated: 2023/08/16 09:55:12 by jwillert         ###   ########           #
+#    Updated: 2023/08/16 09:57:01 by jwillert         ###   ########           #
 #                                                                              #
 # **************************************************************************** #
-
 
 # General
 .PHONY: all stop build run
@@ -25,8 +24,9 @@ re:
 	$(MAKE) stop ; $(MAKE) rm ; $(MAKE) build
 
 # Clean up
-.PHONY: rm rm_ps rm_images
-
+.PHONY: clean fclean rm rm_ps rm_images
+clean: rm
+fclean: clean
 rm:	rm_ps rm_images
 rm_ps:
 	docker rm $(shell docker ps -a -q)
