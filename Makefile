@@ -6,7 +6,7 @@
 #    By: jwillert <jwillert@student.42heilbronn.de> +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/10 18:42:55 by jwillert          #+#    #+#              #
-#    Updated: 2023/08/16 09:39:49 by jwillert         ###   ########           #
+#    Updated: 2023/08/16 09:50:19 by jwillert         ###   ########           #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,8 +18,7 @@ all: build
 stop:
 	docker stop $(shell docker ps -a -q)
 
-build:
-	git submodule foreach git pull
+build: submodule_update
 	docker build . -t cpp
 run:
 	docker run -it cpp
@@ -40,5 +39,6 @@ rm_images:
 submod: submodule_init submodule_update
 submodule_init:
 	git submodule update --init --recursive
-submodule_update:
-	git submodule update --recursive --remote
+	git submodule foreach 'git checkout master'
+submodule_update: submodule_init
+	git submodule foreach 'git pull'
