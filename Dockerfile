@@ -25,6 +25,6 @@ RUN apt-get install vim -y
 
 # Set working directory and git clone current repo
 COPY cpp/ /usr/src/cpp/
-WORKDIR /usr/src/cpp/cpp_00/
+WORKDIR /usr/src/cpp/cpp_01/
 
 #RUN clang++ -o Test main.cpp -std=c++98 -Wall -Wextra -Werror

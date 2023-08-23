@@ -6,7 +6,7 @@
 #    By: jwillert <jwillert@student.42heilbronn.de> +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/10 18:42:55 by jwillert          #+#    #+#              #
-#    Updated: 2023/08/16 16:57:26 by jwillert         ###   ########.fr        #
+#    Updated: 2023/08/18 15:09:32 by jwillert         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,6 @@
 .PHONY: 	all daemon stop build run
 
 all: 		daemon build
-
 daemon:
 				docker info || (open -a Docker && sleep 20)
 stop:
@@ -24,10 +23,11 @@ build:		submod_update
 run:
 				docker run -it cpp
 re:
-	$(MAKE) stop ; $(MAKE) rm ; $(MAKE) build
+				$(MAKE) stop ; $(MAKE) rm ; $(MAKE) build
 
 # Clean up
 .PHONY:		clean fclean rm rm_ps rm_images
+
 clean: 		rm_ps
 fclean:		rm_images
 rm:			rm_ps rm_images
