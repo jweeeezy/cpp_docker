@@ -23,8 +23,11 @@ RUN apt-get install make -y
 # Install vim editor
 RUN apt-get install vim -y
 
+# Install valgrind
+RUN apt-get install valgrind -y
+
 # Set working directory and git clone current repo
 COPY cpp/ /usr/src/cpp/
-WORKDIR /usr/src/cpp/cpp_01/
+WORKDIR /usr/src/cpp/cpp_04/
 
 #RUN clang++ -o Test main.cpp -std=c++98 -Wall -Wextra -Werror
