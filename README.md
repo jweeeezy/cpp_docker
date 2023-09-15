@@ -1,4 +1,9 @@
 # docker
 
-# needs:
-docker daemon running (start client on MacOS with "open -a Docker")
+MacOS Docker application
+
+```make```
+to setup
+
+```make run```
+to run the container
